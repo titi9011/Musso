@@ -1,0 +1,66 @@
+[
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\.vscode\\tasks.json",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Musso\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Musso.Build.cs",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Musso\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Musso.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Musso\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Musso.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Musso\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\MussoGameModeBase.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Musso\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\MussoGameModeBase.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Musso\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\MyActorTest.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Musso\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\MyActorTest.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Musso\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	}
+]
