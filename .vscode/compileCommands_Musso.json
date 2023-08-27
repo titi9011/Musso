@@ -56,6 +56,22 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
 	},
 	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Private\\CharacterState.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Musso\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Private\\IdleState.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Musso\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
 		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Private\\MainCharacter.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
@@ -65,6 +81,14 @@
 	},
 	{
 		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Public\\CharacterState.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Musso\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Public\\IdleState.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Musso\\Musso.261.rsp"

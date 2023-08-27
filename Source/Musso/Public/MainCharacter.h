@@ -1,7 +1,6 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
+#include "CharacterState.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
 #include "MainCharacter.generated.h"
@@ -9,26 +8,29 @@
 UCLASS()
 class MUSSO_API AMainCharacter : public APawn
 {
-	GENERATED_BODY()
+    GENERATED_BODY()
 
 public:
-	// Sets default values for this pawn's properties
-	AMainCharacter();
+    // Sets default values for this pawn's properties
+    AMainCharacter();
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+    // Called when the game starts or when spawned
+    virtual void BeginPlay() override;
 
+public:
+    // Called every frame
+    virtual void Tick(float DeltaTime) override;
 
+    // Called to bind functionality to input
+    virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+private:
+    UCharacterState *MainCharacterState;
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+public:
+	void setMainCharacterState(UCharacterState *_MainCharacterState);
 
-
-
+	void updateState(void);
 
 };
