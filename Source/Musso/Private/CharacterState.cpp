@@ -7,7 +7,8 @@ UCharacterState::UCharacterState()
 {
 }
 
-void UCharacterState::setCharacter(APawn *_MainCharacter)
+
+void UCharacterState::setCharacter(AMainCharacter *_MainCharacter)
 {
 	this->MainCharacter = _MainCharacter;
 }

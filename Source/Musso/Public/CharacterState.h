@@ -10,13 +10,14 @@ class MUSSO_API UCharacterState
 {
 public:
 	UCharacterState();
+	virtual ~UCharacterState() = default;
 
 protected:
-	APawn *MainCharacter;
+	AMainCharacter *MainCharacter;
 
 public:
 
-	void setCharacter(APawn *_MainCharacter);
+	void setCharacter(AMainCharacter *_MainCharacter);
 
 	virtual void idle() = 0;
 	virtual void walking() = 0;

@@ -10,7 +10,12 @@ AMainCharacter::AMainCharacter()
 	PrimaryActorTick.bCanEverTick = true;
 
 	setMainCharacterState(new IdleState);
-	
+
+}
+
+AMainCharacter::~AMainCharacter()
+{
+	delete MainCharacterState;
 
 }
 
@@ -26,7 +31,7 @@ void AMainCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
-	updateState();
+	runStates();
 
 }
 
@@ -40,12 +45,16 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 void AMainCharacter::setMainCharacterState(UCharacterState *_MainCharacterState)
 {
+	if (this->MainCharacterState != nullptr)
+	{
+		delete this->MainCharacterState;
+	}
 	this->MainCharacterState = _MainCharacterState;
 	this->MainCharacterState->setCharacter(this);
 }
 
 
-void AMainCharacter::updateState()
+void AMainCharacter::runStates()
 {
 	MainCharacterState->idle();
 	MainCharacterState->walking();

@@ -14,6 +14,8 @@ public:
     // Sets default values for this pawn's properties
     AMainCharacter();
 
+    ~AMainCharacter();
+
 protected:
     // Called when the game starts or when spawned
     virtual void BeginPlay() override;
@@ -29,8 +31,8 @@ private:
     UCharacterState *MainCharacterState;
 
 public:
-	void setMainCharacterState(UCharacterState *_MainCharacterState);
+	virtual void setMainCharacterState(UCharacterState *_MainCharacterState);
 
-	void updateState(void);
+	void runStates(void);
 
 };
