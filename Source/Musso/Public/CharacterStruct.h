@@ -1,7 +1,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "CharacterStruct.generated.h"
 
 enum CharacterStates
@@ -16,19 +15,16 @@ enum CharacterStates
 USTRUCT(BlueprintType)
 struct FCharacterStruct
 {
-	    GENERATED_BODY()
-
-public:
-	FCharacterStruct() = default;
+	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float health = 1;
+	float health = 1.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float speed = 1;
+	float speed = 1000.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float attackDamage = 0.1;
+	float attackDamage = 0.1f;
 	
 	bool isIdle = true;
 	bool isWalking = false;
