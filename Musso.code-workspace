@@ -10,7 +10,47 @@
 		}
 	],
 	"settings": {
-		"typescript.tsc.autoDetect": "off"
+		"typescript.tsc.autoDetect": "off",
+		"files.associations": {
+			"*.code-workspace": "cpp",
+			"__bit_reference": "cpp",
+			"deque": "cpp",
+			"future": "cpp",
+			"ios": "cpp",
+			"type_traits": "cpp",
+			"xstring": "cpp",
+			"xutility": "cpp",
+			"*.ipp": "cpp",
+			"__locale": "cpp",
+			"optional": "cpp",
+			"regex": "cpp",
+			"algorithm": "cpp",
+			"execution": "cpp",
+			"locale": "cpp",
+			"__hash_table": "cpp",
+			"__split_buffer": "cpp",
+			"__tree": "cpp",
+			"array": "cpp",
+			"bitset": "cpp",
+			"hash_map": "cpp",
+			"initializer_list": "cpp",
+			"list": "cpp",
+			"map": "cpp",
+			"queue": "cpp",
+			"set": "cpp",
+			"span": "cpp",
+			"stack": "cpp",
+			"string": "cpp",
+			"string_view": "cpp",
+			"unordered_map": "cpp",
+			"unordered_set": "cpp",
+			"valarray": "cpp",
+			"vector": "cpp",
+			"random": "cpp",
+			"ranges": "cpp",
+			"xhash": "cpp",
+			"xtree": "cpp"
+		}
 	},
 	"extensions": {
 		"recommendations": [
