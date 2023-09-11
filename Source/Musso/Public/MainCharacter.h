@@ -5,6 +5,7 @@
 #include "GameFramework/Pawn.h"
 #include "InputActionValue.h"
 #include "CharacterStruct.h"
+#include "BallComponent.h"
 #include "MainCharacter.generated.h"
 
 UCLASS()
@@ -48,7 +49,7 @@ public:
 
 	virtual void setMainCharacterState(UCharacterState *_MainCharacterState);
 
-	void runStates(void);
+	void runStates();
 
 
 };

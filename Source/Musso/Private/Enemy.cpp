@@ -25,11 +25,11 @@ void AEnemy::BeginPlay()
 void AEnemy::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	move(DeltaTime);
+	move();
 
 }
 
-void AEnemy::move(float DeltaTime)
+void AEnemy::move()
 {
 	FVector direction = MainCharacter->GetActorLocation() - GetActorLocation();
 	

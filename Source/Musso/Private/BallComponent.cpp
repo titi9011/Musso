@@ -3,6 +3,7 @@
 
 #include "BallComponent.h"
 #include "TimerManager.h"
+#include "BallProjectile.h"
 
 // Sets default values for this component's properties
 UBallComponent::UBallComponent()
@@ -20,7 +21,8 @@ void UBallComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
+	StartSpawningBalls();
+
 	
 }
 
@@ -36,14 +38,22 @@ void UBallComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorC
 
 void UBallComponent::StartSpawningBalls()
 {
-	//FTimerHandle MyTimerHandle;
-    //GetWorldTimerManager().SetTimer(MyTimerHandle, this, &AMyCharacter::SpawnBall, 1.0f, true, 1.0f);
+	FTimerHandle MyTimerHandle;
+
+	// Start a timer
+	GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &UBallComponent::SpawnBall, 2.0f, true);
+
+
 }
 
 void UBallComponent::SpawnBall()
 {
-    // Créez une nouvelle instance de votre classe de balle
-    //ABall* NewBall = GetWorld()->SpawnActor<ABall>(BallClass, GetActorLocation(), FRotator::ZeroRotator);
-
-    // Configurez d'autres propriétés de la balle si nécessaire
+	AActor* owner = GetOwner();
+	if (owner)
+	{
+		FVector ownerLocation = owner->GetActorLocation();
+		// Créez une nouvelle instance de votre classe de balle
+		auto NewBall = GetWorld()->SpawnActor<ABallProjectile>(projectileClass, ownerLocation, FRotator::ZeroRotator);
+		UE_LOG(LogTemp, Error, TEXT("SpawnBall"));
+	}
 }

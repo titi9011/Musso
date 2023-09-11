@@ -4,18 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "MainCharacter.h"
-#include "CharacterStruct.h"
-#include "Enemy.generated.h"
+#include "BallProjectile.generated.h"
 
 UCLASS()
-class MUSSO_API AEnemy : public AActor
+class MUSSO_API ABallProjectile : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	AEnemy();
+	ABallProjectile();
 
 protected:
 	// Called when the game starts or when spawned
@@ -24,12 +22,5 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	FCharacterStruct EnemyStruct;
-
-private:
-	void move();
-
-	AMainCharacter* MainCharacter;
 
 };

@@ -24,6 +24,9 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<class ABallProjectile> projectileClass;
+
 private:
 
 	FVector direction = FVector(1.f, 0.f, 0.f);
