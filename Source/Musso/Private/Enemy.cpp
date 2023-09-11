@@ -31,13 +31,13 @@ void AEnemy::Tick(float DeltaTime)
 
 void AEnemy::move(float DeltaTime)
 {
-	FVector Direction = MainCharacter->GetActorLocation() - GetActorLocation();
+	FVector direction = MainCharacter->GetActorLocation() - GetActorLocation();
 	
-	if (Direction.Size() > 200.f)
+	if (direction.Size() > 200.f)
 	{
 
-	Direction.Normalize();
-	AddActorLocalOffset(Direction*EnemyStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this), true);
+	direction.Normalize();
+	AddActorLocalOffset(direction*EnemyStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this), true);
 
 	}
 }

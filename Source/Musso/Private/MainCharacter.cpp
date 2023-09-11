@@ -21,6 +21,8 @@ AMainCharacter::AMainCharacter()
 
 	setMainCharacterState(new IdleState);
 
+	CharacterStruct.speed = 1100.f;
+
 }
 
 AMainCharacter::~AMainCharacter()
@@ -74,15 +76,15 @@ void AMainCharacter::Move(const FInputActionValue& Value)
 
 	FVector2D MovementVector = Value.Get<FVector2D>();
 
-	UE_LOG(LogTemp, Error, TEXT("%f, %f"), MovementVector.X, MovementVector.Y);
 
 	if (Controller != nullptr)
 	{
 		// add movement
-		
-		float speed = 1000.f;
-		AddActorLocalOffset(FVector(MovementVector.X,0,0)*CharacterStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this), true);
-		AddActorLocalOffset(FVector(0,MovementVector.Y,0)*CharacterStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this), true);
+
+		FVector direction = FVector(MovementVector.X,MovementVector.Y,0);
+		direction.Normalize();
+
+		AddActorLocalOffset(direction*CharacterStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this), true);
 	}
 
 }
