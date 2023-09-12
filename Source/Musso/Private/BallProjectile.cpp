@@ -43,7 +43,7 @@ void ABallProjectile::giveDamage()
 	TArray<FHitResult> hitResults;
 	bool bHit = GetWorld()->SweepMultiByChannel(hitResults, startLocation, endLocation, FQuat::Identity, ECC_WorldStatic, FCollisionShape::MakeSphere(100.0f), CollisionParams);
 
-	//DrawDebugSphere(GetWorld(), startLocation, 100.0f, 12, FColor::Red, false, 1.f);
+
 
 	if (bHit)
 	{
@@ -54,10 +54,15 @@ void ABallProjectile::giveDamage()
 			{
 				auto onHitEnemy = Cast<AEnemy>(onHitActor);
 				onHitEnemy->GetDamage();
-
 				explosion();
 				Destroy();
 			}
+			else if (onHitActor && onHitActor->ActorHasTag("wall"))
+			{
+				explosion();
+				Destroy();
+			}
+
 		}
 	}
 }
@@ -65,8 +70,7 @@ void ABallProjectile::giveDamage()
 
 void ABallProjectile::explosion()
 {
-	UE_LOG(LogTemp, Error, TEXT("explosion"));
-	
+
 	auto NewExplosion = GetWorld()->SpawnActor<AExplosion>(explosionBPClass, GetActorLocation(), FRotator::ZeroRotator);
 
 }

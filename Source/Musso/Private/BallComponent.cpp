@@ -53,7 +53,6 @@ void UBallComponent::SpawnBall()
 	{
 		FVector ownerLocation = owner->GetActorLocation();
 		// Créez une nouvelle instance de votre classe de balle
-		auto NewBall = GetWorld()->SpawnActor<ABallProjectile>(projectileClass, ownerLocation, FRotator::ZeroRotator);
-		UE_LOG(LogTemp, Error, TEXT("SpawnBall"));
+		auto NewBall = GetWorld()->SpawnActor<ABallProjectile>(projectileBPClass, ownerLocation, FRotator::ZeroRotator);
 	}
 }
