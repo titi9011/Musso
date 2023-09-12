@@ -25,11 +25,15 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	FCharacterStruct EnemyStruct;
+	FCharacterStruct enemyStruct;
+
+	void GetDamage();
 
 private:
 	void move();
 
 	AMainCharacter* MainCharacter;
+
+
 
 };

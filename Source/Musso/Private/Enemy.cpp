@@ -37,8 +37,19 @@ void AEnemy::move()
 	{
 
 	direction.Normalize();
-	AddActorLocalOffset(direction*EnemyStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this), true);
+	AddActorLocalOffset(direction*enemyStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this), true);
 
 	}
 }
 
+void AEnemy::GetDamage()
+{
+	if (enemyStruct.health - 0.5f <= 0)
+	{
+		Destroy();
+	}
+	else
+	{
+		enemyStruct.health -= 0.5f;
+	}
+}
