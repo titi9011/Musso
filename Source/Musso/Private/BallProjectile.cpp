@@ -3,6 +3,7 @@
 
 #include "BallProjectile.h"
 #include "Enemy.h"
+#include "Explosion.h"
 
 // Sets default values
 ABallProjectile::ABallProjectile()
@@ -44,16 +45,28 @@ void ABallProjectile::giveDamage()
 
 	//DrawDebugSphere(GetWorld(), startLocation, 100.0f, 12, FColor::Red, false, 1.f);
 
-	for (FHitResult hitResult: hitResults)
+	if (bHit)
 	{
-		AActor* onHitActor = hitResult.GetActor();
-		if (onHitActor && onHitActor->ActorHasTag("enemy")) //&& hitResult.GetActor()->ActorHasTag("enemy")
+		for (FHitResult hitResult: hitResults)
 		{
-			UE_LOG(LogTemp, Error, TEXT("enemy"));
-			auto onHitEnemy = Cast<AEnemy>(onHitActor);
-			onHitEnemy->GetDamage();
+			AActor* onHitActor = hitResult.GetActor();
+			if (onHitActor && onHitActor->ActorHasTag("enemy")) //&& hitResult.GetActor()->ActorHasTag("enemy")
+			{
+				auto onHitEnemy = Cast<AEnemy>(onHitActor);
+				onHitEnemy->GetDamage();
 
-			Destroy();
+				explosion();
+				Destroy();
+			}
 		}
 	}
+}
+
+
+void ABallProjectile::explosion()
+{
+	UE_LOG(LogTemp, Error, TEXT("explosion"));
+	
+	auto NewExplosion = GetWorld()->SpawnActor<AExplosion>(explosionBPClass, GetActorLocation(), FRotator::ZeroRotator);
+
 }

@@ -44,12 +44,12 @@ void AEnemy::move()
 
 void AEnemy::GetDamage()
 {
-	if (enemyStruct.health - 0.5f <= 0)
+	if (enemyStruct.health - 1.f <= 0)
 	{
 		Destroy();
 	}
 	else
 	{
-		enemyStruct.health -= 0.5f;
+		enemyStruct.health -= 1.f;
 	}
 }

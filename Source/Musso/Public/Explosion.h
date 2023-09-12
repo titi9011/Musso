@@ -4,16 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "BallProjectile.generated.h"
+#include "Explosion.generated.h"
 
 UCLASS()
-class MUSSO_API ABallProjectile : public AActor
+class MUSSO_API AExplosion : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	ABallProjectile();
+	AExplosion();
 
 protected:
 	// Called when the game starts or when spawned
@@ -24,10 +24,6 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
-	void giveDamage();
+	void destroy();
 
-	void explosion();
-
-	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class AExplosion> explosionBPClass;
 };
