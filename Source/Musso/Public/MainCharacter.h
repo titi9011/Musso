@@ -51,5 +51,6 @@ public:
 
 	void runStates();
 
+    void GetDamage();
 
 };

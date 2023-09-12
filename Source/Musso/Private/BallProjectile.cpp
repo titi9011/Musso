@@ -43,8 +43,6 @@ void ABallProjectile::giveDamage()
 	TArray<FHitResult> hitResults;
 	bool bHit = GetWorld()->SweepMultiByChannel(hitResults, startLocation, endLocation, FQuat::Identity, ECC_WorldStatic, FCollisionShape::MakeSphere(100.0f), CollisionParams);
 
-
-
 	if (bHit)
 	{
 		for (FHitResult hitResult: hitResults)

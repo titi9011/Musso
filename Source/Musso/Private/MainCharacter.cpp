@@ -108,3 +108,18 @@ void AMainCharacter::runStates()
 	MainCharacterState->dead();
 
 }
+
+void AMainCharacter::GetDamage()
+{
+	if (CharacterStruct.health - 0.1f <= 0)
+	{
+		UE_LOG(LogTemp, Error, TEXT("Dead!!!"));
+		//Destroy();
+	}
+	else
+	{
+		CharacterStruct.health -= 0.1f;
+		UE_LOG(LogTemp, Error, TEXT("Damage!!!"));
+	}
+
+}
