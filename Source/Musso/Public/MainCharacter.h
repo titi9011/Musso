@@ -41,7 +41,7 @@ private:
 
     UCharacterState *MainCharacterState;
 
-    void Move(const FInputActionValue& Value);
+    void MoveAndRotation(const FInputActionValue& Value);
 
 public:
 

@@ -66,12 +66,12 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 	if (EnhancedInputComponent)
 	{
 		//Moving
-		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AMainCharacter::Move);
+		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AMainCharacter::MoveAndRotation);
 	}
 }
 
 
-void AMainCharacter::Move(const FInputActionValue& Value)
+void AMainCharacter::MoveAndRotation(const FInputActionValue& Value)
 {
 
 	FVector2D MovementVector = Value.Get<FVector2D>();
@@ -80,11 +80,14 @@ void AMainCharacter::Move(const FInputActionValue& Value)
 	if (Controller != nullptr)
 	{
 		// add movement
-
 		FVector direction = FVector(MovementVector.X,MovementVector.Y,0);
 		direction.Normalize();
 
-		AddActorLocalOffset(direction*CharacterStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this), true);
+		FRotator newRotation = direction.Rotation() + FRotator(0.f, -90.f, 0.f);
+
+		FVector newLocation = GetActorLocation() + direction*CharacterStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this);
+
+		SetActorLocationAndRotation(newLocation, newRotation, true);
 	}
 
 }
