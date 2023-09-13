@@ -25,6 +25,9 @@ struct FCharacterStruct
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float attackDamage = 0.1f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int coins = 0;
 	
 	bool isIdle = true;
 	bool isWalking = false;

@@ -126,3 +126,8 @@ void AMainCharacter::GetDamage()
 	}
 
 }
+
+void AMainCharacter::getCoin()
+{
+	CharacterStruct.coins += 1;
+}
