@@ -86,7 +86,7 @@ void AMainCharacter::MoveAndRotation(const FInputActionValue& Value)
 
 		FVector newLocation = GetActorLocation() + direction*CharacterStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this);
 
-		SetActorLocationAndRotation(newLocation, newRotation, true);
+		SetActorLocationAndRotation(newLocation, newRotation);
 
 	}
 
