@@ -29,10 +29,20 @@ public:
 
 	void GetDamage();
 
+	UPROPERTY(EditDefaultsOnly)
+	class UMaterialInterface* flashMaterial;
+
+	UPROPERTY(EditDefaultsOnly)
+	class UMaterialInterface* baseMaterial;
+
 private:
 	void move();
 
 	AMainCharacter* MainCharacter;
+
+	void materialFlash();
+
+	void materialBase();
 
 
 

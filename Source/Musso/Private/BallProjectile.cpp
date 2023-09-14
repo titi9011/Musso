@@ -48,7 +48,7 @@ void ABallProjectile::giveDamage()
 		for (FHitResult hitResult: hitResults)
 		{
 			AActor* onHitActor = hitResult.GetActor();
-			if (onHitActor && onHitActor->ActorHasTag("enemy")) //&& hitResult.GetActor()->ActorHasTag("enemy")
+			if (onHitActor && onHitActor->ActorHasTag("enemy"))
 			{
 				auto onHitEnemy = Cast<AEnemy>(onHitActor);
 				onHitEnemy->GetDamage();

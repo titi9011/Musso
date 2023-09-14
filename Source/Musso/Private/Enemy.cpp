@@ -3,6 +3,8 @@
 
 #include "Enemy.h"
 #include "Kismet/GameplayStatics.h"
+#include "Components/StaticMeshComponent.h"
+#include "TimerManager.h"
 
 // Sets default values
 AEnemy::AEnemy()
@@ -44,12 +46,44 @@ void AEnemy::move()
 
 void AEnemy::GetDamage()
 {
-	if (enemyStruct.health - 1.f <= 0)
+	if (enemyStruct.health - 0.5f <= 0)
 	{
 		Destroy();
 	}
 	else
 	{
-		enemyStruct.health -= 1.f;
+		enemyStruct.health -= 0.5f;
+		materialFlash();
+
+	}
+}
+
+void AEnemy::materialFlash()
+{
+	UStaticMeshComponent* MyMeshComponent = FindComponentByClass<UStaticMeshComponent>();
+	if (MyMeshComponent)
+	{
+		if (flashMaterial)
+		{
+			MyMeshComponent->SetMaterial(0, flashMaterial);
+			
+			FTimerHandle MyTimerHandle;
+
+			// Start a timer
+			GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &AEnemy::materialBase, 0.1f, false);
+
+		}
+	}
+}
+
+void AEnemy::materialBase()
+{
+	UStaticMeshComponent* MyMeshComponent = FindComponentByClass<UStaticMeshComponent>();
+	if (MyMeshComponent)
+	{
+		if (baseMaterial)
+		{
+			MyMeshComponent->SetMaterial(0, baseMaterial);
+		}
 	}
 }
