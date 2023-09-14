@@ -117,12 +117,13 @@ void AMainCharacter::GetDamage()
 	if (CharacterStruct.health - 0.1f <= 0)
 	{
 		UE_LOG(LogTemp, Error, TEXT("Dead!!!"));
+		materialFlash();
 		//Destroy();
 	}
 	else
 	{
 		CharacterStruct.health -= 0.1f;
-		UE_LOG(LogTemp, Error, TEXT("Damage!!!"));
+		materialFlash();
 	}
 
 }
@@ -130,4 +131,34 @@ void AMainCharacter::GetDamage()
 void AMainCharacter::getCoin()
 {
 	CharacterStruct.coins += 1;
+}
+
+void AMainCharacter::materialFlash()
+{
+	UStaticMeshComponent* MyMeshComponent = FindComponentByClass<UStaticMeshComponent>();
+	if (MyMeshComponent)
+	{
+		if (flashMaterial)
+		{
+			MyMeshComponent->SetMaterial(0, flashMaterial);
+			
+			FTimerHandle MyTimerHandle;
+
+			// Start a timer
+			GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &AMainCharacter::materialBase, 0.1f, false);
+
+		}
+	}
+}
+
+void AMainCharacter::materialBase()
+{
+	UStaticMeshComponent* MyMeshComponent = FindComponentByClass<UStaticMeshComponent>();
+	if (MyMeshComponent)
+	{
+		if (baseMaterial)
+		{
+			MyMeshComponent->SetMaterial(0, baseMaterial);
+		}
+	}
 }

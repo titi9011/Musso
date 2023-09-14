@@ -55,4 +55,15 @@ public:
 
     void getCoin();
 
+    UPROPERTY(EditDefaultsOnly)
+	class UMaterialInterface* flashMaterial;
+
+	UPROPERTY(EditDefaultsOnly)
+	class UMaterialInterface* baseMaterial;
+
+private:
+
+	void materialFlash();
+
+	void materialBase();
 };
