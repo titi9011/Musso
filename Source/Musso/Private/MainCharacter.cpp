@@ -76,7 +76,6 @@ void AMainCharacter::MoveAndRotation(const FInputActionValue& Value)
 
 	FVector2D MovementVector = Value.Get<FVector2D>();
 
-
 	if (Controller != nullptr)
 	{
 		// add movement
@@ -88,6 +87,7 @@ void AMainCharacter::MoveAndRotation(const FInputActionValue& Value)
 		FVector newLocation = GetActorLocation() + direction*CharacterStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this);
 
 		SetActorLocationAndRotation(newLocation, newRotation, true);
+
 	}
 
 }
@@ -135,7 +135,7 @@ void AMainCharacter::getCoin()
 
 void AMainCharacter::materialFlash()
 {
-	UStaticMeshComponent* MyMeshComponent = FindComponentByClass<UStaticMeshComponent>();
+	USkeletalMeshComponent* MyMeshComponent = GetMesh();
 	if (MyMeshComponent)
 	{
 		if (flashMaterial)
@@ -153,12 +153,14 @@ void AMainCharacter::materialFlash()
 
 void AMainCharacter::materialBase()
 {
-	UStaticMeshComponent* MyMeshComponent = FindComponentByClass<UStaticMeshComponent>();
+	USkeletalMeshComponent* MyMeshComponent = GetMesh();
 	if (MyMeshComponent)
 	{
 		if (baseMaterial)
 		{
 			MyMeshComponent->SetMaterial(0, baseMaterial);
+
+			UE_LOG(LogTemp, Error, TEXT("flash"));
 		}
 	}
 }

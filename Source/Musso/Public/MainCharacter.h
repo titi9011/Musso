@@ -6,10 +6,11 @@
 #include "InputActionValue.h"
 #include "CharacterStruct.h"
 #include "BallComponent.h"
+#include "GameFramework/Character.h"
 #include "MainCharacter.generated.h"
 
 UCLASS()
-class MUSSO_API AMainCharacter : public APawn
+class MUSSO_API AMainCharacter : public ACharacter
 {
     GENERATED_BODY()
 
