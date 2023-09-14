@@ -79,12 +79,12 @@ void AMainCharacter::MoveAndRotation(const FInputActionValue& Value)
 	if (Controller != nullptr)
 	{
 		// add movement
-		FVector direction = FVector(MovementVector.X,MovementVector.Y,0);
-		direction.Normalize();
+		CharacterStruct.direction = FVector(MovementVector.X,MovementVector.Y,0);
+		CharacterStruct.direction.Normalize();
 
-		FRotator newRotation = direction.Rotation() + FRotator(0.f, -90.f, 0.f);
+		FRotator newRotation = CharacterStruct.direction.Rotation() + FRotator(0.f, -90.f, 0.f);
 
-		FVector newLocation = GetActorLocation() + direction*CharacterStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this);
+		FVector newLocation = GetActorLocation() + CharacterStruct.direction*CharacterStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this);
 
 		SetActorLocationAndRotation(newLocation, newRotation);
 

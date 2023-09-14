@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "MainCharacter.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "BallProjectile.generated.h"
@@ -30,4 +31,11 @@ private:
 
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<class AExplosion> explosionBPClass;
+
+	UPROPERTY(EditDefaultsOnly)
+	class AMainCharacter* mainCharacter;
+
+	FVector ballDirection;
+
+	void setBallDirection();
 };

@@ -17,6 +17,10 @@ struct FCharacterStruct
 {
 	GENERATED_BODY()
 
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FVector direction = FVector(0.f, 0.f, 0.f);
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float health = 1.f;
 
@@ -28,6 +32,8 @@ struct FCharacterStruct
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int coins = 0;
+
+
 	
 	bool isIdle = true;
 	bool isWalking = false;

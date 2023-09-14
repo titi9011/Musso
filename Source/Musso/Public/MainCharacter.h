@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CharacterState.h"
+#include "Kismet/GameplayStatics.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
 #include "InputActionValue.h"
@@ -61,6 +62,7 @@ public:
 
 	UPROPERTY(EditDefaultsOnly)
 	class UMaterialInterface* baseMaterial;
+
 
 private:
 

@@ -17,7 +17,9 @@ ABallProjectile::ABallProjectile()
 void ABallProjectile::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	setBallDirection();
+
 }
 
 // Called every frame
@@ -26,7 +28,11 @@ void ABallProjectile::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	giveDamage();
-	AddActorLocalOffset(FVector(0.f, 1.f, 0.f)*2000.f*DeltaTime, true);
+
+	if (mainCharacter)
+	{
+		AddActorLocalOffset(ballDirection*2000.f*DeltaTime, true);
+	}
 }
 
 void ABallProjectile::giveDamage()
@@ -71,4 +77,19 @@ void ABallProjectile::explosion()
 
 	auto NewExplosion = GetWorld()->SpawnActor<AExplosion>(explosionBPClass, GetActorLocation(), FRotator::ZeroRotator);
 
+}
+
+void ABallProjectile::setBallDirection()
+{
+	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
+
+    if (PlayerController)
+    {
+        mainCharacter = Cast<AMainCharacter>(PlayerController->GetPawn());
+
+		if (mainCharacter)
+		{
+			ballDirection = mainCharacter->CharacterStruct.direction;
+		}
+    }
 }
