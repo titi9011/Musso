@@ -35,6 +35,9 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	class UMaterialInterface* baseMaterial;
 
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<class ACoin> coinBPClass;
+
 private:
 	void move();
 
@@ -44,6 +47,7 @@ private:
 
 	void materialBase();
 
+	void spawnCoin();
 
 
 };

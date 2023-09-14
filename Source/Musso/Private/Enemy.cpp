@@ -2,6 +2,7 @@
 
 
 #include "Enemy.h"
+#include "Coin.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components/StaticMeshComponent.h"
 #include "TimerManager.h"
@@ -48,6 +49,7 @@ void AEnemy::GetDamage()
 {
 	if (enemyStruct.health - 0.5f <= 0)
 	{
+		spawnCoin();
 		Destroy();
 	}
 	else
@@ -85,5 +87,14 @@ void AEnemy::materialBase()
 		{
 			MyMeshComponent->SetMaterial(0, baseMaterial);
 		}
+	}
+}
+
+
+void AEnemy::spawnCoin()
+{
+	if (coinBPClass)
+	{
+		auto newCoin = GetWorld()->SpawnActor<ACoin>(coinBPClass, GetActorLocation(), FRotator::ZeroRotator);
 	}
 }
