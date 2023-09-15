@@ -31,7 +31,7 @@ private:
 
 	FVector direction = FVector(1.f, 0.f, 0.f);
 
-	float speed = 2000.f;
+	float speed = 3000.f;
 
 	void StartSpawningBalls();
 

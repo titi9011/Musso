@@ -3,11 +3,10 @@
 #include "CoreMinimal.h"
 #include "CharacterStruct.generated.h"
 
-enum CharacterStates
+enum states
 {
 	idle,
 	walking,
-	attacking,
 	dead
 };
 
@@ -15,8 +14,8 @@ enum CharacterStates
 USTRUCT(BlueprintType)
 struct FCharacterStruct
 {
-	GENERATED_BODY()
 
+	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector direction = FVector(0.f, 0.f, 0.f);
@@ -33,12 +32,9 @@ struct FCharacterStruct
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int coins = 0;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int state = states::idle;
 
-	
-	bool isIdle = true;
-	bool isWalking = false;
-	bool isAttacking = false;
-	bool isDead = false;
 };
 
 

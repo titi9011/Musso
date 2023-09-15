@@ -21,7 +21,7 @@ AMainCharacter::AMainCharacter()
 
 	setMainCharacterState(new IdleState);
 
-	CharacterStruct.speed = 1100.f;
+	CharacterStruct.speed = 2000.f;
 
 }
 
@@ -86,7 +86,7 @@ void AMainCharacter::MoveAndRotation(const FInputActionValue& Value)
 
 		FVector newLocation = GetActorLocation() + CharacterStruct.direction*CharacterStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this);
 
-		SetActorLocationAndRotation(newLocation, newRotation);
+		SetActorLocationAndRotation(newLocation, newRotation, true);
 
 	}
 
@@ -107,7 +107,6 @@ void AMainCharacter::runStates()
 {
 	MainCharacterState->idle();
 	MainCharacterState->walking();
-	MainCharacterState->attacking();
 	MainCharacterState->dead();
 
 }

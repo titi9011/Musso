@@ -2,7 +2,8 @@
 
 
 #include "walkingState.h"
-
+#include "IdleState.h"
+#include "MainCharacter.h"
 
 WalkingState::WalkingState()
 {
@@ -18,12 +19,10 @@ void WalkingState::idle()
 
 void WalkingState::walking()
 {
-    //UE_LOG(LogTemp, Display, TEXT("Walking State activated"));
+    UE_LOG(LogTemp, Display, TEXT("Walking State activated"));
+    this->MainCharacter->CharacterStruct.state = states::walking;
 }
 
-void WalkingState::attacking()
-{
-}
 
 void WalkingState::dead()
 {

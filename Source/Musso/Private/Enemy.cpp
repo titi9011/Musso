@@ -28,6 +28,7 @@ void AEnemy::BeginPlay()
 void AEnemy::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
 	move();
 
 }
@@ -41,6 +42,7 @@ void AEnemy::move()
 
 	direction.Normalize();
 	AddActorLocalOffset(direction*enemyStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this), true);
+
 
 	}
 }

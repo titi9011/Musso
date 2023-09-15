@@ -17,6 +17,5 @@ public:
 
 	void idle() override;
 	void walking() override;
-	void attacking() override;
 	void dead() override;
 };

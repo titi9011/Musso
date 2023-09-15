@@ -15,7 +15,10 @@ IdleState::~IdleState()
 void IdleState::idle()
 {
     UE_LOG(LogTemp, Display, TEXT("Idle State activated"));
-    this->MainCharacter->setMainCharacterState(new WalkingState);
+
+    this->MainCharacter->CharacterStruct.state = states::idle;
+    
+    //this->MainCharacter->setMainCharacterState(new WalkingState);
 }
 
 void IdleState::walking()
@@ -23,10 +26,6 @@ void IdleState::walking()
     
 }
 
-void IdleState::attacking()
-{
-    
-}
 
 void IdleState::dead()
 {
