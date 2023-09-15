@@ -25,7 +25,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	FCharacterStruct enemyStruct;
+	FEnemyStruct enemyStruct;
 
 	void GetDamage();
 

@@ -57,6 +57,8 @@ void AMainCharacter::Tick(float DeltaTime)
 	
 	runStates();
 
+	UE_LOG(LogTemp, Error, TEXT("%s"), *GetActorLocation().ToCompactString());
+
 }
 
 // Called to bind functionality to input

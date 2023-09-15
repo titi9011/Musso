@@ -2,19 +2,18 @@
 
 #pragma once
 
-#include "MainCharacter.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "BallProjectile.generated.h"
+#include "EnemySpawner.generated.h"
 
 UCLASS()
-class MUSSO_API ABallProjectile : public AActor
+class MUSSO_API AEnemySpawner : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	ABallProjectile();
+	AEnemySpawner();
 
 protected:
 	// Called when the game starts or when spawned
@@ -23,21 +22,16 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-private:
-	void giveDamage();
-
-	void explosion();
-
-	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class AExplosion> explosionBPClass;
-
-	UPROPERTY(EditDefaultsOnly)
-	class AMainCharacter* mainCharacter;
-
-	FVector ballDirection;
-
-	void setBallDirection();
-
 	
+private:
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<class AEnemy> enemyBPClass;
+
+	void spawnEnemy();
+
+	FVector topRight = FVector(7524.25f, 6091.64f, 270.00f);
+	FVector bottomLeft = FVector(-5190.48f, -15485.55f, 270.00f);
+
+
 };

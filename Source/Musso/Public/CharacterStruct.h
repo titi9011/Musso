@@ -37,5 +37,24 @@ struct FCharacterStruct
 
 };
 
+USTRUCT(BlueprintType)
+struct FEnemyStruct
+{
+
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float health = 1.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float speed = 1000.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float attackDamage = 0.1f;
+
+
+};
+
+
 
 

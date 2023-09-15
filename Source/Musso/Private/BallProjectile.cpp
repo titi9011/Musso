@@ -31,7 +31,7 @@ void ABallProjectile::Tick(float DeltaTime)
 
 	if (mainCharacter)
 	{
-		AddActorLocalOffset(ballDirection*2000.f*DeltaTime, true);
+		AddActorLocalOffset(ballDirection*3000.f*DeltaTime, true);
 	}
 }
 
