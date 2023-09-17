@@ -49,6 +49,9 @@ public:
 
     FCharacterStruct CharacterStruct;
 
+    UFUNCTION(BlueprintCallable)
+    int getState();
+
 	virtual void setMainCharacterState(UCharacterState *_MainCharacterState);
 
 	void runStates();
@@ -63,10 +66,14 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	class UMaterialInterface* baseMaterial;
 
-
 private:
 
 	void materialFlash();
 
 	void materialBase();
+
+    void updateBIsMoving();
+
+    FVector lastPosition;
+
 };

@@ -20,7 +20,15 @@ void WalkingState::idle()
 void WalkingState::walking()
 {
     UE_LOG(LogTemp, Display, TEXT("Walking State activated"));
+
     this->MainCharacter->CharacterStruct.state = states::walking;
+
+
+    if (this->MainCharacter->CharacterStruct.bIsMoving == false)
+    {
+        this->MainCharacter->setMainCharacterState(new IdleState);
+    }
+
 }
 
 

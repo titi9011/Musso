@@ -48,6 +48,8 @@ void AMainCharacter::BeginPlay()
 			}
 		}
 	}
+
+	lastPosition = GetActorLocation();
 }
 
 // Called every frame
@@ -55,9 +57,8 @@ void AMainCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
+	updateBIsMoving();
 	runStates();
-
-	UE_LOG(LogTemp, Error, TEXT("%s"), *GetActorLocation().ToCompactString());
 
 }
 
@@ -77,6 +78,7 @@ void AMainCharacter::MoveAndRotation(const FInputActionValue& Value)
 {
 
 	FVector2D MovementVector = Value.Get<FVector2D>();
+
 
 	if (Controller != nullptr)
 	{
@@ -164,4 +166,23 @@ void AMainCharacter::materialBase()
 			UE_LOG(LogTemp, Error, TEXT("flash"));
 		}
 	}
+}
+
+void AMainCharacter::updateBIsMoving()
+{
+	if (lastPosition == GetActorLocation())
+	{
+		CharacterStruct.bIsMoving = false;
+	}
+	else
+	{
+		CharacterStruct.bIsMoving = true;
+	}
+
+	lastPosition = GetActorLocation();
+}
+
+int AMainCharacter::getState()
+{
+	return CharacterStruct.state;
 }
