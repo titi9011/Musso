@@ -52,6 +52,9 @@ public:
     UFUNCTION(BlueprintCallable)
     int getState();
 
+    UFUNCTION(BlueprintCallable)
+    float getCoinProgression();
+
 	virtual void setMainCharacterState(UCharacterState *_MainCharacterState);
 
 	void runStates();

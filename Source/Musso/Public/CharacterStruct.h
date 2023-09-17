@@ -33,10 +33,14 @@ struct FCharacterStruct
 	int coins = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int nbCoinUpgrade = 20;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int state = states::idle;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bIsMoving = false;
+
 };
 
 USTRUCT(BlueprintType)
