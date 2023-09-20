@@ -44,7 +44,6 @@ void ACoin::collect()
 			AActor* onHitActor = hitResult.GetActor();
 			if (onHitActor && onHitActor->ActorHasTag("mainCharacter")) //&& hitResult.GetActor()->ActorHasTag("enemy")
 			{
-				UE_LOG(LogTemp, Error, TEXT("MainCharacter touch coin!!!"));
 				auto mainCharacter = Cast<AMainCharacter>(onHitActor);
 				mainCharacter->getCoin();
 				Destroy();

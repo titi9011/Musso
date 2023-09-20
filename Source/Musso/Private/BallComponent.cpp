@@ -5,6 +5,7 @@
 #include "TimerManager.h"
 #include "BallProjectile.h"
 
+
 // Sets default values for this component's properties
 UBallComponent::UBallComponent()
 {
@@ -53,6 +54,6 @@ void UBallComponent::SpawnBall()
 	{
 		FVector ownerLocation = owner->GetActorLocation();
 		// Créez une nouvelle instance de votre classe de balle
-		auto NewBall = GetWorld()->SpawnActor<ABallProjectile>(projectileBPClass, ownerLocation, FRotator::ZeroRotator);
+			auto NewBall = GetWorld()->SpawnActor<AActor>(projectileBPClass, ownerLocation, FRotator::ZeroRotator);
 	}
 }

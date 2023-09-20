@@ -4,17 +4,18 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "BallComponent.generated.h"
+#include "Enemy.h"
+#include "BallFollowComponent.generated.h"
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class MUSSO_API UBallComponent : public UActorComponent
+class MUSSO_API UBallFollowComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:	
 	// Sets default values for this component's properties
-	UBallComponent();
+	UBallFollowComponent();
 
 protected:
 	// Called when the game starts
@@ -25,7 +26,7 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<AActor> projectileBPClass;
+	TSubclassOf<class ABallFollow> projectileBPClass;
 
 private:
 
@@ -37,5 +38,8 @@ private:
 
 	void SpawnBall();
 
-		
+	void closestEnemyUpdate();
+
+	AEnemy* closestEnemy;
+
 };

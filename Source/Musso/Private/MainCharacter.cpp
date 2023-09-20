@@ -189,6 +189,5 @@ int AMainCharacter::getState()
 
 float AMainCharacter::getCoinProgression()
 {
-	UE_LOG(LogTemp, Error, TEXT("%i"), CharacterStruct.coins);
 	return CharacterStruct.coins/ (float) CharacterStruct.nbCoinUpgrade;
 }
