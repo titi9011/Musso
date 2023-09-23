@@ -3,6 +3,7 @@
 
 #include "walkingState.h"
 #include "IdleState.h"
+#include "MenuState.h"
 #include "MainCharacter.h"
 
 WalkingState::WalkingState()
@@ -29,9 +30,18 @@ void WalkingState::walking()
         this->MainCharacter->setMainCharacterState(new IdleState);
     }
 
+    if (this->MainCharacter->CharacterStruct.coins >= this->MainCharacter->CharacterStruct.nbCoinUpgrade)
+    {
+        this->MainCharacter->setMainCharacterState(new MenuState);
+    }
 }
 
 
 void WalkingState::dead()
+{
+}
+
+
+void WalkingState::menu()
 {
 }

@@ -2,17 +2,19 @@
 
 #pragma once
 
+#pragma once
+
 #include "CharacterState.h"
 #include "CoreMinimal.h"
 
 /**
  * 
  */
-class MUSSO_API IdleState : public UCharacterState
+class MUSSO_API MenuState : public UCharacterState
 {
 public:
-	IdleState();
-	virtual ~IdleState();
+	MenuState();
+	virtual ~MenuState();
 
 	void idle() override;
 	void walking() override;

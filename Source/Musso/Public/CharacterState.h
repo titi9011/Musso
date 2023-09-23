@@ -22,6 +22,7 @@ public:
 	virtual void idle() = 0;
 	virtual void walking() = 0;
 	virtual void dead() = 0;
+	virtual void menu() = 0;
 };
 
 

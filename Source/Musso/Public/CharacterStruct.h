@@ -7,7 +7,8 @@ enum states
 {
 	idle,
 	walking,
-	dead
+	dead,
+	menu
 };
 
 

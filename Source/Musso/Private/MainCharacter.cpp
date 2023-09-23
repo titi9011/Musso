@@ -112,6 +112,7 @@ void AMainCharacter::runStates()
 	MainCharacterState->idle();
 	MainCharacterState->walking();
 	MainCharacterState->dead();
+	MainCharacterState->menu();
 
 }
 
@@ -190,4 +191,15 @@ int AMainCharacter::getState()
 float AMainCharacter::getCoinProgression()
 {
 	return CharacterStruct.coins/ (float) CharacterStruct.nbCoinUpgrade;
+}
+
+void AMainCharacter::setCoinsToZero()
+{
+	CharacterStruct.coins = 0;
+}
+
+void AMainCharacter::setIdleState()
+{
+	CharacterStruct.state = states::idle;
+	setMainCharacterState(new IdleState);
 }

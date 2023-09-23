@@ -18,4 +18,5 @@ public:
 	void idle() override;
 	void walking() override;
 	void dead() override;
+	void menu() override;
 };

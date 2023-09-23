@@ -56,7 +56,39 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
 	},
 	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Private\\BallFollow.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Private\\BallFollowComponent.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
 		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Private\\BallProjectile.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Private\\BallTurning.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Private\\BallTurningProjectile.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
@@ -80,7 +112,23 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
 	},
 	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Private\\Coin.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
 		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Private\\Enemy.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Private\\EnemySpawner.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
@@ -112,6 +160,14 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
 	},
 	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Private\\MenuState.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
 		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Private\\walkingState.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
@@ -128,7 +184,39 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
 	},
 	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Public\\BallFollow.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Public\\BallFollowComponent.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
 		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Public\\BallProjectile.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Public\\BallTurning.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Public\\BallTurningProjectile.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
@@ -160,7 +248,23 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
 	},
 	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Public\\Coin.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
 		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Public\\Enemy.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Public\\EnemySpawner.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
@@ -185,6 +289,14 @@
 	},
 	{
 		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Public\\MainCharacter.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\Source\\Musso\\Public\\MenuState.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\Hostx64\\x64\\cl.exe",
 			"@C:\\Users\\Thierry\\Documents\\Unreal Projects\\Musso\\.vscode\\compileCommands_Default\\Musso.261.rsp"

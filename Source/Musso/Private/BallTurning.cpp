@@ -2,6 +2,7 @@
 
 
 #include "BallTurning.h"
+#include "TimerManager.h"
 
 // Sets default values for this component's properties
 UBallTurning::UBallTurning()
@@ -19,14 +20,11 @@ void UBallTurning::BeginPlay()
 {
 	Super::BeginPlay();
 
+	FTimerHandle MyTimerHandle;
 
-	AActor* owner = GetOwner();
-	if (owner)
-	{
-		FVector ownerLocation = owner->GetActorLocation();
-		// Créez une nouvelle instance de votre classe de balle
-		auto NewBall = GetWorld()->SpawnActor<ABallTurningProjectile>(BallTurningBPClass, ownerLocation, FRotator::ZeroRotator);
-	}
+	// Start a timer
+	GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &UBallTurning::spawnTurningBall, 1.0f, false);
+
 
 }
 
@@ -39,3 +37,18 @@ void UBallTurning::TickComponent(float DeltaTime, ELevelTick TickType, FActorCom
 	// ...
 }
 
+void UBallTurning::spawnTurningBall()
+{
+	AActor* owner = GetOwner();
+	if (owner)
+	{
+		FVector ownerLocation = owner->GetActorLocation();
+		// Créez une nouvelle instance de votre classe de balle
+
+		if (BallTurningBPClass)
+		{
+			UE_LOG(LogTemp, Error, TEXT("pointeur working!!!!"));
+			auto NewBall = GetWorld()->SpawnActor<ABallTurningProjectile>(BallTurningBPClass, ownerLocation, FRotator::ZeroRotator);
+		}
+	}
+}

@@ -23,13 +23,14 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UPROPERTY(BlueprintReadWrite)
+	TSubclassOf<class AExplosion> explosionBPClass;
+
+
 private:
 	void giveDamage();
 
 	void explosion();
-
-	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class AExplosion> explosionBPClass;
 
 	class AMainCharacter* mainCharacter;
 

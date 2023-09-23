@@ -25,7 +25,9 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<ABallTurningProjectile> BallTurningBPClass;
+	UPROPERTY(BlueprintReadWrite)
+	UClass* BallTurningBPClass;
 
+private:
+	void spawnTurningBall();
 };

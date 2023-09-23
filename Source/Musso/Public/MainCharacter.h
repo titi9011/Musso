@@ -69,6 +69,12 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	class UMaterialInterface* baseMaterial;
 
+    UFUNCTION(BlueprintCallable)
+    void setCoinsToZero();
+
+    UFUNCTION(BlueprintCallable)
+    void setIdleState();
+
 private:
 
 	void materialFlash();
