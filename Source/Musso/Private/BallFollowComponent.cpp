@@ -22,7 +22,10 @@ void UBallFollowComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	StartSpawningBalls();
+	FTimerHandle MyTimerHandle;
+
+	// Start a timer
+	GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &UBallFollowComponent::StartSpawningBalls, 1.0f, false);
 	
 }
 
@@ -46,7 +49,7 @@ void UBallFollowComponent::StartSpawningBalls()
 
 void UBallFollowComponent::SpawnBall()
 {
-
+	UE_LOG(LogTemp, Error, TEXT("spawn a ball"));
 	AActor* owner = GetOwner();
 	if (owner)
 	{
