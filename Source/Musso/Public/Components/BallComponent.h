@@ -37,5 +37,8 @@ private:
 
 	void SpawnBall();
 
+	float getCastSpeed();
+
+
 		
 };

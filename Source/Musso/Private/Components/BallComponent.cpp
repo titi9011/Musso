@@ -42,7 +42,7 @@ void UBallComponent::StartSpawningBalls()
 	FTimerHandle MyTimerHandle;
 
 	// Start a timer
-	GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &UBallComponent::SpawnBall, 2.0f, true);
+	GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &UBallComponent::SpawnBall, getCastSpeed(), true);
 
 
 }
@@ -56,4 +56,21 @@ void UBallComponent::SpawnBall()
 		// Créez une nouvelle instance de votre classe de balle
 			auto NewBall = GetWorld()->SpawnActor<AActor>(projectileBPClass, ownerLocation, FRotator::ZeroRotator);
 	}
+}
+
+
+float UBallComponent::getCastSpeed()
+{
+
+    AMainCharacter* mainCharacter = Cast<AMainCharacter>(GetOwner());
+
+	if (mainCharacter)
+	{
+		return mainCharacter->CharacterStruct.ballFollowingStruct.castSpeed;
+	}
+	else
+	{
+		return 1.0f;
+	}
+
 }

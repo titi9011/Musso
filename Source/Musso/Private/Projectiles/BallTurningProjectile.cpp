@@ -19,7 +19,6 @@ void ABallTurningProjectile::BeginPlay()
 {
 	Super::BeginPlay();
 
-
 	setDamage();
 
 	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
@@ -88,7 +87,7 @@ void ABallTurningProjectile::setDamage()
     {
         mainCharacter = Cast<AMainCharacter>(PlayerController->GetPawn());
     }
-	damage = mainCharacter->CharacterStruct.ballProjectileStruct.attackDamage;
+	damage = mainCharacter->CharacterStruct.ballTurningStruct.attackDamage;
 }
 
 
