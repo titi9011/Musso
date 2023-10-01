@@ -56,7 +56,7 @@ void AMainCharacter::BeginPlay()
 void AMainCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	
+	collectCoins();
 	updateBIsMoving();
 	runStates();
 
@@ -132,10 +132,6 @@ void AMainCharacter::GetDamage()
 
 }
 
-void AMainCharacter::getCoin()
-{
-	CharacterStruct.coins += 1;
-}
 
 void AMainCharacter::materialFlash()
 {
@@ -202,4 +198,28 @@ void AMainCharacter::setIdleState()
 {
 	CharacterStruct.state = states::idle;
 	setMainCharacterState(new IdleState);
+}
+
+void AMainCharacter::collectCoins()
+{
+	FVector startLocation = GetActorLocation();
+
+	FVector endLocation = startLocation + FVector(10.0f, 0.0f, 0.0f);
+
+	TArray<FHitResult> hitResults;
+	bool bHit = GetWorld()->SweepMultiByChannel(hitResults, startLocation, endLocation, FQuat::Identity, ECC_WorldStatic, FCollisionShape::MakeSphere(100.f));
+
+	if (bHit)
+	{
+		for (FHitResult hitResult: hitResults)
+		{
+			AActor* onHitActor = hitResult.GetActor();
+			if (onHitActor && onHitActor->ActorHasTag("coin"))
+			{
+				CharacterStruct.coins += 1;
+				onHitActor->Destroy();
+			}
+
+		}
+	}
 }

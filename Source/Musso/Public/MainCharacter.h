@@ -61,8 +61,6 @@ public:
 
     void GetDamage();
 
-    void getCoin();
-
     UPROPERTY(EditDefaultsOnly)
 	class UMaterialInterface* flashMaterial;
 
@@ -84,5 +82,7 @@ private:
     void updateBIsMoving();
 
     FVector lastPosition;
+
+    void collectCoins();
 
 };
