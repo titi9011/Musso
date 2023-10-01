@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "BallTurning.h"
+#include "Components\BallTurning.h"
 #include "TimerManager.h"
 
 // Sets default values for this component's properties
@@ -24,7 +24,6 @@ void UBallTurning::BeginPlay()
 
 	// Start a timer
 	GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &UBallTurning::spawnTurningBall, 1.0f, false);
-
 
 }
 

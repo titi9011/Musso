@@ -1,9 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "BallComponent.h"
+#include "Components\BallComponent.h"
 #include "TimerManager.h"
-#include "BallProjectile.h"
+#include "Projectiles\BallProjectile.h"
 
 
 // Sets default values for this component's properties

@@ -1,12 +1,12 @@
 #pragma once
 
-#include "CharacterState.h"
+#include "States\CharacterState.h"
 #include "Kismet/GameplayStatics.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
 #include "InputActionValue.h"
 #include "CharacterStruct.h"
-#include "BallComponent.h"
+#include "Components\BallComponent.h"
 #include "GameFramework/Character.h"
 #include "MainCharacter.generated.h"
 

@@ -1,12 +1,13 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "BallFollow.h"
+#include "Projectiles\BallTurningProjectile.h"
+#include <cmath>
 #include "MainCharacter.h"
 #include "Enemy.h"
 
 // Sets default values
-ABallFollow::ABallFollow()
+ABallTurningProjectile::ABallTurningProjectile()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -14,9 +15,12 @@ ABallFollow::ABallFollow()
 }
 
 // Called when the game starts or when spawned
-void ABallFollow::BeginPlay()
+void ABallTurningProjectile::BeginPlay()
 {
 	Super::BeginPlay();
+
+
+	setDamage();
 
 	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
 
@@ -24,37 +28,29 @@ void ABallFollow::BeginPlay()
     {
         mainCharacter = Cast<AMainCharacter>(PlayerController->GetPawn());
     }
-
-	startPosition = mainCharacter->GetActorLocation();
 	
 }
 
 // Called every frame
-void ABallFollow::Tick(float DeltaTime)
+void ABallTurningProjectile::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	updateDirection();
 
-	UE_LOG(LogTemp, Error, TEXT("%s"), *direction.ToCompactString());
 
-	AddActorLocalOffset(direction*2000.f*DeltaTime, true);
 	giveDamage();
+	counter++;
 
+	float angle = 0.05f*counter;
 
-}
+	FVector around = FVector(r*std::cos(angle), r*std::sin(angle), 0.f);
 
-void ABallFollow::updateDirection()
-{
-	if (enemyToFollow)
+	if (mainCharacter)
 	{
-		direction = enemyToFollow->GetActorLocation() - GetActorLocation();
-		direction.Normalize();
+		SetActorLocation(mainCharacter->GetActorLocation() + around);
 	}
 }
 
-
-
-void ABallFollow::giveDamage()
+void ABallTurningProjectile::giveDamage()
 {
 	
 	FVector startLocation = GetActorLocation();
@@ -76,20 +72,29 @@ void ABallFollow::giveDamage()
 			if (onHitActor && onHitActor->ActorHasTag("enemy"))
 			{
 				auto onHitEnemy = Cast<AEnemy>(onHitActor);
-				onHitEnemy->GetDamage();
-				Destroy();
-			}
-			else if (onHitActor && onHitActor->ActorHasTag("wall"))
-			{
-				Destroy();
+				onHitEnemy->GetDamage(damage);
+				//explosion();
 			}
 
 		}
 	}
 }
 
-
-void ABallFollow::setEnemmyToFollow(AEnemy* enemyActor)
+void ABallTurningProjectile::setDamage()
 {
-	enemyToFollow = enemyActor;
+	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
+
+    if (PlayerController)
+    {
+        mainCharacter = Cast<AMainCharacter>(PlayerController->GetPawn());
+    }
+	damage = mainCharacter->CharacterStruct.ballProjectileStruct.attackDamage;
 }
+
+
+// void ABallTurningProjectile::explosion()
+// {
+
+// 	auto NewExplosion = GetWorld()->SpawnActor<AExplosion>(explosionBPClass, GetActorLocation(), FRotator::ZeroRotator);
+
+// }

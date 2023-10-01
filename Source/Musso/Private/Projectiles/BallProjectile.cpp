@@ -1,9 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "BallProjectile.h"
+#include "Projectiles\BallProjectile.h"
 #include "Enemy.h"
-#include "Explosion.h"
+#include "Projectiles\Explosion.h"
 
 // Sets default values
 ABallProjectile::ABallProjectile()
@@ -17,6 +17,8 @@ ABallProjectile::ABallProjectile()
 void ABallProjectile::BeginPlay()
 {
 	Super::BeginPlay();
+
+	setDamage();
 
 	setBallDirection();
 
@@ -57,7 +59,7 @@ void ABallProjectile::giveDamage()
 			if (onHitActor && onHitActor->ActorHasTag("enemy"))
 			{
 				auto onHitEnemy = Cast<AEnemy>(onHitActor);
-				onHitEnemy->GetDamage();
+				onHitEnemy->GetDamage(damage);
 				explosion();
 				Destroy();
 			}
@@ -92,4 +94,16 @@ void ABallProjectile::setBallDirection()
 			ballDirection = mainCharacter->CharacterStruct.direction;
 		}
     }
+}
+
+
+void ABallProjectile::setDamage()
+{
+	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
+
+    if (PlayerController)
+    {
+        mainCharacter = Cast<AMainCharacter>(PlayerController->GetPawn());
+    }
+	damage = mainCharacter->CharacterStruct.ballProjectileStruct.attackDamage;
 }

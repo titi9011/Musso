@@ -47,16 +47,16 @@ void AEnemy::move()
 	}
 }
 
-void AEnemy::GetDamage()
+void AEnemy::GetDamage(float damage)
 {
-	if (enemyStruct.health - 0.5f <= 0)
+	if (enemyStruct.health - damage <= 0)
 	{
 		spawnCoin();
 		Destroy();
 	}
 	else
 	{
-		enemyStruct.health -= 0.5f;
+		enemyStruct.health -= damage;
 		materialFlash();
 
 	}

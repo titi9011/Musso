@@ -1,6 +1,6 @@
-#include "IdleState.h"
-#include "walkingState.h"
-#include "MenuState.h"
+#include "States\IdleState.h"
+#include "States\walkingState.h"
+#include "States\MenuState.h"
 #include "MainCharacter.h"
 
 IdleState::IdleState()

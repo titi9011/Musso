@@ -1,7 +1,7 @@
 
-#include "MenuState.h"
-#include "walkingState.h"
-#include "IdleState.h"
+#include "States\MenuState.h"
+#include "States\walkingState.h"
+#include "States\IdleState.h"
 #include "Blueprint/UserWidget.h"
 #include "Engine/World.h"
 #include "MainCharacter.h"

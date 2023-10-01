@@ -2,19 +2,18 @@
 
 #pragma once
 
-#include "MainCharacter.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "BallProjectile.generated.h"
+#include "BallTurningProjectile.generated.h"
 
 UCLASS()
-class MUSSO_API ABallProjectile : public AActor
+class MUSSO_API ABallTurningProjectile : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	ABallProjectile();
+	ABallTurningProjectile();
 
 protected:
 	// Called when the game starts or when spawned
@@ -24,18 +23,23 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UPROPERTY(BlueprintReadWrite)
+	TSubclassOf<class AExplosion> explosionBPClass;
+
+
 private:
 	void giveDamage();
 
 	void explosion();
 
-	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class AExplosion> explosionBPClass;
-
 	class AMainCharacter* mainCharacter;
 
-	FVector ballDirection;
+	double counter = 0;
 
-	void setBallDirection();
+	float r = 700.f;
+
+	void setDamage();
+
+	float damage;
 
 };

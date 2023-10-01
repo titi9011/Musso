@@ -1,10 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "BallFollowComponent.h"
+#include "Components\BallFollowComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Enemy.h"
-#include "BallFollow.h"
+#include "Projectiles\BallFollow.h"
 
 // Sets default values for this component's properties
 UBallFollowComponent::UBallFollowComponent()
@@ -21,6 +21,8 @@ UBallFollowComponent::UBallFollowComponent()
 void UBallFollowComponent::BeginPlay()
 {
 	Super::BeginPlay();
+
+	setCastSpeed();
 
 	FTimerHandle MyTimerHandle;
 
@@ -43,14 +45,14 @@ void UBallFollowComponent::StartSpawningBalls()
 	FTimerHandle MyTimerHandle;
 	
 	// Start a timer
-	GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &UBallFollowComponent::SpawnBall, 4.0f, true);
+	GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &UBallFollowComponent::SpawnBall, castSpeed, true);
 
 }
 
 void UBallFollowComponent::SpawnBall()
 {
-	UE_LOG(LogTemp, Error, TEXT("spawn a ball"));
 	AActor* owner = GetOwner();
+	UE_LOG(LogTemp, Error, TEXT("owner!!!!"));
 	if (owner)
 	{
 		UE_LOG(LogTemp, Error, TEXT("spawn a ball"));
@@ -58,7 +60,11 @@ void UBallFollowComponent::SpawnBall()
 		// Créez une nouvelle instance de votre classe de balle
 		ABallFollow* NewBall = GetWorld()->SpawnActor<ABallFollow>(projectileBPClass, ownerLocation, FRotator::ZeroRotator);
 		closestEnemyUpdate();
-		NewBall->setEnemmyToFollow(closestEnemy);
+
+		if (closestEnemy)
+		{
+			NewBall->setEnemmyToFollow(closestEnemy);
+		}
 
 	}
 
@@ -88,4 +94,13 @@ void UBallFollowComponent::closestEnemyUpdate()
 			}
 		}
 	}
+}
+
+
+void UBallFollowComponent::setCastSpeed()
+{
+
+    AMainCharacter* mainCharacter = Cast<AMainCharacter>(GetOwner());
+
+	castSpeed = mainCharacter->CharacterStruct.ballFollowingStruct.castSpeed;
 }

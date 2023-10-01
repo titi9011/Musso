@@ -1,9 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "walkingState.h"
-#include "IdleState.h"
-#include "MenuState.h"
+#include "States\walkingState.h"
+#include "States\IdleState.h"
+#include "States\MenuState.h"
 #include "MainCharacter.h"
 
 WalkingState::WalkingState()

@@ -27,7 +27,7 @@ public:
 
 	FEnemyStruct enemyStruct;
 
-	void GetDamage();
+	void GetDamage(float damage);
 
 	UPROPERTY(EditDefaultsOnly)
 	class UMaterialInterface* flashMaterial;

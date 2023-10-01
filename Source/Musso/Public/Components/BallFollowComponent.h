@@ -4,18 +4,18 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "BallTurningProjectile.h"
-#include "BallTurning.generated.h"
+#include "Enemy.h"
+#include "BallFollowComponent.generated.h"
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class MUSSO_API UBallTurning : public UActorComponent
+class MUSSO_API UBallFollowComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:	
 	// Sets default values for this component's properties
-	UBallTurning();
+	UBallFollowComponent();
 
 protected:
 	// Called when the game starts
@@ -26,8 +26,24 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UPROPERTY(BlueprintReadWrite)
-	UClass* BallTurningBPClass;
+	UClass* projectileBPClass;
 
 private:
-	void spawnTurningBall();
+
+	FVector direction = FVector(1.f, 0.f, 0.f);
+
+	float speed = 3000.f;
+
+	void StartSpawningBalls();
+
+	void SpawnBall();
+
+	void closestEnemyUpdate();
+
+	AEnemy* closestEnemy;
+
+	void setCastSpeed();
+
+	float castSpeed;
+
 };

@@ -2,18 +2,19 @@
 
 #pragma once
 
+#include "MainCharacter.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "BallFollow.generated.h"
+#include "BallProjectile.generated.h"
 
 UCLASS()
-class MUSSO_API ABallFollow : public AActor
+class MUSSO_API ABallProjectile : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	ABallFollow();
+	ABallProjectile();
 
 protected:
 	// Called when the game starts or when spawned
@@ -23,21 +24,22 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	class AEnemy* enemyToFollow;
-
-	void setEnemmyToFollow(AEnemy* enemyActor);
-
 private:
-	
-	class AMainCharacter* mainCharacter;
-
-	FVector startPosition;
-
-	FVector direction;
-
-	void updateDirection();
-
 	void giveDamage();
 
+	void explosion();
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<class AExplosion> explosionBPClass;
+
+	class AMainCharacter* mainCharacter;
+
+	FVector ballDirection;
+
+	void setBallDirection();
+
+	void setDamage();
+
+	float damage;
 
 };

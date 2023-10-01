@@ -4,16 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "BallTurningProjectile.generated.h"
+#include "BallFollow.generated.h"
 
 UCLASS()
-class MUSSO_API ABallTurningProjectile : public AActor
+class MUSSO_API ABallFollow : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	ABallTurningProjectile();
+	ABallFollow();
 
 protected:
 	// Called when the game starts or when spawned
@@ -23,22 +23,24 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(BlueprintReadWrite)
-	TSubclassOf<class AExplosion> explosionBPClass;
+	class AEnemy* enemyToFollow;
 
+	void setEnemmyToFollow(AEnemy* enemyActor);
 
 private:
-	void giveDamage();
-
-	void explosion();
-
+	
 	class AMainCharacter* mainCharacter;
 
-	double counter = 0;
+	FVector startPosition;
 
-	float r = 700.f;
+	FVector direction = FVector(0.f, 0.f, 0.f);
 
+	void updateDirection();
 
+	void giveDamage();
 
+	void setDamage();
+
+	float damage;
 
 };
