@@ -223,3 +223,10 @@ void AMainCharacter::collectCoins()
 		}
 	}
 }
+
+void AMainCharacter::increaseCastSpeed()
+{
+	CharacterStruct.ballProjectileStruct.castSpeed = 0.1;
+	CharacterStruct.ballTurningStruct.castSpeed = 0.1;
+	CharacterStruct.ballFollowingStruct.castSpeed = 0.1;
+}

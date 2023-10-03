@@ -15,6 +15,8 @@ class MUSSO_API UBallComponent : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UBallComponent();
+	~UBallComponent();
+
 
 protected:
 	// Called when the game starts
@@ -25,15 +27,22 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<AActor> projectileBPClass;
+	UClass* projectileBPClass;
+
+	UFUNCTION(BlueprintCallable)
+	void StartSpawningBalls();
+
+	UFUNCTION(BlueprintCallable)
+	void StopSpawningBalls();
+
 
 private:
+
+	FTimerHandle MyTimerHandle;
 
 	FVector direction = FVector(1.f, 0.f, 0.f);
 
 	float speed = 3000.f;
-
-	void StartSpawningBalls();
 
 	void SpawnBall();
 

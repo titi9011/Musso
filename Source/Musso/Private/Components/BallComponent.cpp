@@ -16,6 +16,11 @@ UBallComponent::UBallComponent()
 	// ...
 }
 
+UBallComponent::~UBallComponent()
+{
+	 
+}
+
 
 // Called when the game starts
 void UBallComponent::BeginPlay()
@@ -39,12 +44,14 @@ void UBallComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorC
 
 void UBallComponent::StartSpawningBalls()
 {
-	FTimerHandle MyTimerHandle;
-
 	// Start a timer
 	GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &UBallComponent::SpawnBall, getCastSpeed(), true);
 
+}
 
+void UBallComponent::StopSpawningBalls()
+{
+	GetWorld()->GetTimerManager().ClearTimer(MyTimerHandle);
 }
 
 void UBallComponent::SpawnBall()

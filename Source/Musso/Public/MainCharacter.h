@@ -73,6 +73,9 @@ public:
     UFUNCTION(BlueprintCallable)
     void setIdleState();
 
+    UFUNCTION(BlueprintCallable)
+    void increaseCastSpeed();
+
 private:
 
 	void materialFlash();
