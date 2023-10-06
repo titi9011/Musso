@@ -39,7 +39,7 @@ void ABallTurningProjectile::Tick(float DeltaTime)
 	giveDamage();
 	counter++;
 
-	float angle = 0.05f*counter;
+	float angle = 0.03f*counter;
 
 	FVector around = FVector(r*std::cos(angle), r*std::sin(angle), 0.f);
 
