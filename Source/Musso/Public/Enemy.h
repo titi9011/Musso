@@ -9,7 +9,7 @@
 #include "Enemy.generated.h"
 
 UCLASS()
-class MUSSO_API AEnemy : public AActor
+class MUSSO_API AEnemy : public APawn
 {
 	GENERATED_BODY()
 	
@@ -38,6 +38,10 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<class ACoin> coinBPClass;
 
+	UFUNCTION(BlueprintCallable)
+	float getSpeed();
+	
+
 private:
 	void move();
 
@@ -48,5 +52,8 @@ private:
 	void materialBase();
 
 	void spawnCoin();
+
+	FVector lastLocation = FVector(0.f, 0.f, 0.f);
+
 
 };

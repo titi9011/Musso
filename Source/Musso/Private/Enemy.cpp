@@ -5,6 +5,7 @@
 #include "Coin.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components/StaticMeshComponent.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "TimerManager.h"
 
 // Sets default values
@@ -41,8 +42,10 @@ void AEnemy::move()
 	{
 
 	direction.Normalize();
-	AddActorLocalOffset(direction*enemyStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this), true);
+	
+	FVector NewLocation = GetActorLocation() + direction*enemyStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this);
 
+	SetActorLocationAndRotation(NewLocation, direction.ToOrientationRotator(), true);
 
 	}
 }
@@ -99,4 +102,13 @@ void AEnemy::spawnCoin()
 	{
 		auto newCoin = GetWorld()->SpawnActor<ACoin>(coinBPClass, GetActorLocation(), FRotator::ZeroRotator);
 	}
+}
+
+
+
+float AEnemy::getSpeed()
+{
+	FVector actualVelocity = GetActorLocation() - lastLocation;
+	lastLocation = GetActorLocation();
+	return actualVelocity.Size();
 }
