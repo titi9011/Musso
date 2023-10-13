@@ -16,11 +16,8 @@ AEnemySpawner::AEnemySpawner()
 void AEnemySpawner::BeginPlay()
 {
 	Super::BeginPlay();
-
-	FTimerHandle MyTimerHandle;
-
-	// Start a timer
-	GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &AEnemySpawner::spawnEnemy, 1.0f, true);
+	currentLevel = 0;
+	nextLevel();
 	
 }
 
@@ -28,9 +25,6 @@ void AEnemySpawner::BeginPlay()
 void AEnemySpawner::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	
-
 }
 
 void AEnemySpawner::spawnEnemy()
@@ -41,4 +35,57 @@ void AEnemySpawner::spawnEnemy()
     FVector position = FVector(positionX, positionY, topRight.Z);
 
     auto NewBall = GetWorld()->SpawnActor<AEnemy>(enemyBPClass, position, FRotator::ZeroRotator);
+}
+
+void AEnemySpawner::startSpawningEnemy(float occurence)
+{
+	GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &AEnemySpawner::spawnEnemy, occurence, true);
+
+}
+
+void AEnemySpawner::restartSpawningEnemy(float occurence)
+{
+	GetWorld()->GetTimerManager().ClearTimer(MyTimerHandle);
+	GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &AEnemySpawner::spawnEnemy, occurence, true);
+}
+
+void AEnemySpawner::startLevel1()
+{
+	startSpawningEnemy(0.1f);
+	UE_LOG(LogTemp, Error, TEXT("Level 1"));
+
+}
+
+void AEnemySpawner::startLevel2()
+{
+	restartSpawningEnemy(.01f);
+
+}
+
+void AEnemySpawner::startLevel3()
+{
+	restartSpawningEnemy(0.001f);
+
+}
+ 
+
+void AEnemySpawner::nextLevel()
+{
+	currentLevel++;
+	switch (currentLevel)
+	{
+		case 1:
+			startLevel1();
+			break;
+			
+		case 2:
+			startLevel2();
+			break;
+
+		case 3:
+			startLevel3();
+			break;
+		default:
+        	break;
+	}
 }

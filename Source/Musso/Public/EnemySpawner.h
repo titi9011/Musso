@@ -22,8 +22,22 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION(BlueprintCallable)
+	void nextLevel();
+
+	UFUNCTION(BlueprintCallable)
+	void startLevel1();
+	UFUNCTION(BlueprintCallable)
+	void startLevel2();
+	UFUNCTION(BlueprintCallable)
+	void startLevel3();
 	
 private:
+
+	int currentLevel = 0;
+
+	FTimerHandle MyTimerHandle;
 
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<class AEnemy> enemyBPClass;
@@ -32,6 +46,10 @@ private:
 
 	FVector topRight = FVector(7524.25f, 6091.64f, 270.00f);
 	FVector bottomLeft = FVector(-5190.48f, -15485.55f, 270.00f);
+	
+	void startSpawningEnemy(float occurence);
+
+	void restartSpawningEnemy(float occurence);
 
 
 };
