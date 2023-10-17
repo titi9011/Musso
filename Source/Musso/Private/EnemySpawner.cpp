@@ -40,6 +40,7 @@ void AEnemySpawner::spawnEnemy()
 void AEnemySpawner::startSpawningEnemy(float occurence)
 {
 	GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &AEnemySpawner::spawnEnemy, occurence, true);
+
 }
 
 void AEnemySpawner::restartSpawningEnemy(float occurence)
