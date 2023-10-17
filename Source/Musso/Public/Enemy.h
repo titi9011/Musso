@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "MainCharacter.h"
 #include "CharacterStruct.h"
 #include "Enemy.generated.h"
 
@@ -20,6 +19,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
 
 public:	
 	// Called every frame
@@ -40,12 +40,13 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	float getSpeed();
+
+	virtual void move();
 	
 
-private:
-	void move();
+protected:
 
-	AMainCharacter* MainCharacter;
+	class AMainCharacter* MainCharacter;
 
 	void materialFlash();
 

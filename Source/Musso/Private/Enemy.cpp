@@ -2,6 +2,7 @@
 
 
 #include "Enemy.h"
+#include "MainCharacter.h"
 #include "Coin.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components/StaticMeshComponent.h"
@@ -36,17 +37,19 @@ void AEnemy::Tick(float DeltaTime)
 
 void AEnemy::move()
 {
-	FVector direction = MainCharacter->GetActorLocation() - GetActorLocation();
-	
-	if (direction.Size() > 200.f)
+	if (MainCharacter)
 	{
+		FVector direction = MainCharacter->GetActorLocation() - GetActorLocation();
+		
+		if (direction.Size() > 100.f)
+		{
 
-	direction.Normalize();
-	
-	FVector NewLocation = GetActorLocation() + direction*enemyStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this);
+			direction.Normalize();
+			
+			FVector NewLocation = GetActorLocation() + direction*enemyStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this);
 
-	SetActorLocationAndRotation(NewLocation, direction.ToOrientationRotator(), true);
-
+			SetActorLocationAndRotation(NewLocation, direction.ToOrientationRotator(), true);
+		}
 	}
 }
 
