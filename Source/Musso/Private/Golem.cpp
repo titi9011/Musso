@@ -3,6 +3,12 @@
 
 #include "Golem.h"
 #include "MainCharacter.h"
+#include "Coin.h"
+#include "Kismet/GameplayStatics.h"
+#include "Components/StaticMeshComponent.h"
+#include "Kismet/KismetMathLibrary.h"
+#include "TimerManager.h"
+
 
 // Sets default values
 AGolem::AGolem()
@@ -34,4 +40,55 @@ void AGolem::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 }
 
+void AGolem::GetDamage(float damage)
+{
+	if (enemyStruct.health - damage <= 0)
+	{
+		spawnCoin();
+		Destroy();
+	}
+	else
+	{
+		enemyStruct.health -= damage;
+		materialFlash();
+	}
+}
+
+void AGolem::materialFlash()
+{
+	UStaticMeshComponent* MyMeshComponent = FindComponentByClass<UStaticMeshComponent>();
+	if (MyMeshComponent)
+	{
+		if (flashMaterial)
+		{
+			MyMeshComponent->SetMaterial(0, flashMaterial);
+			
+			FTimerHandle MyTimerHandle;
+
+			// Start a timer
+			GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &AGolem::materialBase, 0.1f, false);
+		}
+	}
+}
+
+void AGolem::materialBase()
+{
+	UStaticMeshComponent* MyMeshComponent = FindComponentByClass<UStaticMeshComponent>();
+	if (MyMeshComponent)
+	{
+		if (baseMaterial)
+		{
+			MyMeshComponent->SetMaterial(0, baseMaterial);
+		}
+	}
+}
+
+
+void AGolem::spawnCoin()
+{
+	if (coinBPClass)
+	{
+		auto newCoin = GetWorld()->SpawnActor<ACoin>(coinBPClass, GetActorLocation(), FRotator::ZeroRotator);
+	}
+}
 

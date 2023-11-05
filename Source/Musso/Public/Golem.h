@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "CharacterStruct.h"
 #include "Golem.generated.h"
 
 UCLASS()
@@ -26,8 +27,28 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	FEnemyStruct enemyStruct;
 
+	void GetDamage(float damage);
+
+	UPROPERTY(EditDefaultsOnly)
+	class UMaterialInterface* flashMaterial;
+
+	UPROPERTY(EditDefaultsOnly)
+	class UMaterialInterface* baseMaterial;
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<class ACoin> coinBPClass;
+	
+private:
 
 	class AMainCharacter* MainCharacter;
 
+	void materialFlash();
+
+	void materialBase();
+
+	void spawnCoin();
+
+	FVector lastLocation = FVector(0.f, 0.f, 0.f);
 };

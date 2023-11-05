@@ -59,6 +59,7 @@ public:
 
 	void runStates();
 
+    UFUNCTION(BlueprintCallable)
     void GetDamage();
 
     UPROPERTY(EditDefaultsOnly)

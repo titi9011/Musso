@@ -3,6 +3,7 @@
 
 #include "Projectiles\BallProjectile.h"
 #include "Enemy.h"
+#include "Golem.h"
 #include "Projectiles\Explosion.h"
 
 // Sets default values
@@ -60,6 +61,13 @@ void ABallProjectile::giveDamage()
 			{
 				auto onHitEnemy = Cast<AEnemy>(onHitActor);
 				onHitEnemy->GetDamage(damage);
+				explosion();
+				Destroy();
+			}
+			else if (onHitActor && onHitActor->ActorHasTag("golem"))
+			{
+				auto onHitGolem = Cast<AGolem>(onHitActor);
+				onHitGolem->GetDamage(damage);
 				explosion();
 				Destroy();
 			}

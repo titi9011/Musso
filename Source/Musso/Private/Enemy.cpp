@@ -41,11 +41,13 @@ void AEnemy::move()
 	if (direction.Size() > 200.f)
 	{
 
-	direction.Normalize();
-	
-	FVector NewLocation = GetActorLocation() + direction*enemyStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this);
+		direction.Normalize();
 
-	SetActorLocationAndRotation(NewLocation, direction.ToOrientationRotator(), true);
+		FVector NewLocation = GetActorLocation() + direction*enemyStruct.speed*UGameplayStatics::GetWorldDeltaSeconds(this);
+
+		SetActorLocation(NewLocation);
+
+		SetActorRotation(direction.ToOrientationRotator());
 
 	}
 }
