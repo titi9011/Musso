@@ -123,7 +123,8 @@
 			"xtr1common": "cpp",
 			"xtree": "cpp",
 			"xutility": "cpp"
-		}
+		},
+		"dotnet.defaultSolution": "UE5/Engine/Source/Programs/UnrealBuildTool/UnrealBuildTool.sln"
 	},
 	"extensions": {
 		"recommendations": [

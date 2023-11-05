@@ -44,8 +44,8 @@ private:
 
 	void spawnEnemy();
 
-	FVector topRight = FVector(7524.25f, 6091.64f, 270.00f);
-	FVector bottomLeft = FVector(-5190.48f, -15485.55f, 270.00f);
+	FVector topRight = FVector(4061.0f, 4641.0f, 270.00f);
+	FVector bottomLeft = FVector(-4479.0f, -9999.0f, 270.00f);
 	
 	void startSpawningEnemy(float occurence);
 

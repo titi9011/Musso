@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Golem.h"
+#include "Bat.h"
 #include "MainCharacter.h"
 #include "Coin.h"
 #include "Kismet/GameplayStatics.h"
@@ -9,9 +9,8 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "TimerManager.h"
 
-
 // Sets default values
-AGolem::AGolem()
+ABat::ABat()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -19,7 +18,7 @@ AGolem::AGolem()
 }
 
 // Called when the game starts or when spawned
-void AGolem::BeginPlay()
+void ABat::BeginPlay()
 {
 	Super::BeginPlay();
 
@@ -29,20 +28,20 @@ void AGolem::BeginPlay()
 }
 
 // Called every frame
-void AGolem::Tick(float DeltaTime)
+void ABat::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 }
 
 // Called to bind functionality to input
-void AGolem::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+void ABat::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 }
 
-void AGolem::GetDamage(float damage)
+void ABat::GetDamage(float damage)
 {
 	if (enemyStruct.health - damage <= 0)
 	{
@@ -56,7 +55,7 @@ void AGolem::GetDamage(float damage)
 	}
 }
 
-void AGolem::materialFlash()
+void ABat::materialFlash()
 {
 	UStaticMeshComponent* MyMeshComponent = FindComponentByClass<UStaticMeshComponent>();
 	if (MyMeshComponent)
@@ -68,12 +67,12 @@ void AGolem::materialFlash()
 			FTimerHandle MyTimerHandle;
 
 			// Start a timer
-			GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &AGolem::materialBase, 0.1f, false);
+			GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &ABat::materialBase, 0.1f, false);
 		}
 	}
 }
 
-void AGolem::materialBase()
+void ABat::materialBase()
 {
 	UStaticMeshComponent* MyMeshComponent = FindComponentByClass<UStaticMeshComponent>();
 	if (MyMeshComponent)
@@ -86,7 +85,7 @@ void AGolem::materialBase()
 }
 
 
-void AGolem::spawnCoin()
+void ABat::spawnCoin()
 {
 	if (coinBPClass)
 	{
