@@ -75,7 +75,7 @@ struct FEnemyStruct
 	float health = 1.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float speed = 1000.f;
+	float speed = 800.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float attackDamage = 0.1f;

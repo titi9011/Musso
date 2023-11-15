@@ -37,19 +37,48 @@ private:
 
 	int currentLevel = 0;
 
-	FTimerHandle MyTimerHandle;
+	FTimerHandle enemyTimerHandle;
+	FTimerHandle golemTimerHandle;
+	FTimerHandle batTimerHandle;
 
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<class AEnemy> enemyBPClass;
 
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<class AGolem> golemBPClass;
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<class ABat> batBPClass;
+
+
+	FVector spawnPosition();
+
+
+	FVector topRight = FVector(4061.0f, 4641.0f, 257.00f);
+	FVector bottomLeft = FVector(-4479.0f, -9999.0f, 257.00f);
+
+
+
 	void spawnEnemy();
 
-	FVector topRight = FVector(4061.0f, 4641.0f, 270.00f);
-	FVector bottomLeft = FVector(-4479.0f, -9999.0f, 270.00f);
-	
 	void startSpawningEnemy(float occurence);
 
 	void restartSpawningEnemy(float occurence);
+	
+
+	void spawnGolem();
+
+	void startSpawningGolem(float occurence);
+
+	void restartSpawningGolem(float occurence);
+
+
+	void spawnBat();
+
+	void startSpawningBat(float occurence);
+
+	void restartSpawningBat(float occurence);
+
 
 
 };

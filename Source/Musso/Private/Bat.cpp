@@ -24,7 +24,7 @@ void ABat::BeginPlay()
 
 	MainCharacter = Cast<AMainCharacter>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
 
-	enemyStruct.health = 5.f;
+	enemyStruct.health = 2.f;
 }
 
 // Called every frame

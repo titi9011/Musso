@@ -40,6 +40,6 @@ private:
 
 	void setDamage();
 
-	float damage;
+	float damage = 1.f;
 
 };

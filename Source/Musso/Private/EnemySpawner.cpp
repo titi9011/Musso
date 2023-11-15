@@ -3,6 +3,8 @@
 
 #include "EnemySpawner.h"
 #include "Enemy.h"
+#include "Golem.h"
+#include "Bat.h"
 
 // Sets default values
 AEnemySpawner::AEnemySpawner()
@@ -27,45 +29,87 @@ void AEnemySpawner::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void AEnemySpawner::spawnEnemy()
+FVector AEnemySpawner::spawnPosition()
 {
-    float positionX = FMath::FRandRange(bottomLeft.X, topRight.X);
+	float positionX = FMath::FRandRange(bottomLeft.X, topRight.X);
     float positionY = FMath::FRandRange(bottomLeft.Y, topRight.Y);
 
-    FVector position = FVector(positionX, positionY, topRight.Z);
+    return FVector(positionX, positionY, topRight.Z);
+}
 
+void AEnemySpawner::spawnEnemy()
+{
+	FVector position = spawnPosition();
     auto NewBall = GetWorld()->SpawnActor<AEnemy>(enemyBPClass, position, FRotator::ZeroRotator);
 }
 
 void AEnemySpawner::startSpawningEnemy(float occurence)
 {
-	GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &AEnemySpawner::spawnEnemy, occurence, true);
-
+	GetWorld()->GetTimerManager().SetTimer(enemyTimerHandle, this, &AEnemySpawner::spawnEnemy, occurence, true);
 }
+
 
 void AEnemySpawner::restartSpawningEnemy(float occurence)
 {
-	GetWorld()->GetTimerManager().ClearTimer(MyTimerHandle);
-	GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &AEnemySpawner::spawnEnemy, occurence, true);
+	GetWorld()->GetTimerManager().ClearTimer(enemyTimerHandle);
+	GetWorld()->GetTimerManager().SetTimer(enemyTimerHandle, this, &AEnemySpawner::spawnEnemy, occurence, true);
 }
+
+
+void AEnemySpawner::spawnGolem()
+{
+	FVector position = spawnPosition();
+	auto NewBall = GetWorld()->SpawnActor<AGolem>(golemBPClass, position, FRotator::ZeroRotator);
+}
+
+void AEnemySpawner::startSpawningGolem(float occurence)
+{
+	GetWorld()->GetTimerManager().SetTimer(golemTimerHandle, this, &AEnemySpawner::spawnGolem, occurence, true);
+}
+
+void AEnemySpawner::restartSpawningGolem(float occurence)
+{
+	GetWorld()->GetTimerManager().ClearTimer(golemTimerHandle);
+	GetWorld()->GetTimerManager().SetTimer(golemTimerHandle, this, &AEnemySpawner::spawnGolem, occurence, true);
+}
+
+
+void AEnemySpawner::spawnBat()
+{
+	FVector position = spawnPosition();
+	auto NewBall = GetWorld()->SpawnActor<ABat>(batBPClass, position, FRotator::ZeroRotator);
+}
+
+void AEnemySpawner::startSpawningBat(float occurence)
+{
+	GetWorld()->GetTimerManager().SetTimer(batTimerHandle, this, &AEnemySpawner::spawnBat, occurence, true);
+}
+
+void AEnemySpawner::restartSpawningBat(float occurence)
+{
+	GetWorld()->GetTimerManager().ClearTimer(batTimerHandle);
+	GetWorld()->GetTimerManager().SetTimer(batTimerHandle, this, &AEnemySpawner::spawnBat, occurence, true);
+}
+
 
 void AEnemySpawner::startLevel1()
 {
-	startSpawningEnemy(10.f);
+	startSpawningEnemy(3.f);
+	startSpawningGolem(5.f);
+	startSpawningBat(1.f);
 	UE_LOG(LogTemp, Error, TEXT("Level 1"));
-
 }
 
 void AEnemySpawner::startLevel2()
 {
-	restartSpawningEnemy(7.f);
-
+	restartSpawningEnemy(6.f);
+	startSpawningGolem(10.f);
 }
 
 void AEnemySpawner::startLevel3()
 {
+	restartSpawningEnemy(7.f);
 	restartSpawningEnemy(5.f);
-
 }
  
 
