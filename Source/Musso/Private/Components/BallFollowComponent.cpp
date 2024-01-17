@@ -37,7 +37,6 @@ void UBallFollowComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
 }
 
 void UBallFollowComponent::StartSpawningBalls()
@@ -52,22 +51,17 @@ void UBallFollowComponent::StartSpawningBalls()
 void UBallFollowComponent::SpawnBall()
 {
 	AActor* owner = GetOwner();
-	UE_LOG(LogTemp, Error, TEXT("owner!!!!"));
 	if (owner)
 	{
-		UE_LOG(LogTemp, Error, TEXT("spawn a ball"));
 		FVector ownerLocation = owner->GetActorLocation();
-		// Créez une nouvelle instance de votre classe de balle
-		ABallFollow* NewBall = GetWorld()->SpawnActor<ABallFollow>(projectileBPClass, ownerLocation, FRotator::ZeroRotator);
 		closestEnemyUpdate();
-
 		if (closestEnemy)
 		{
+			ABallFollow* NewBall = GetWorld()->SpawnActor<ABallFollow>(projectileBPClass, ownerLocation, FRotator::ZeroRotator);
 			NewBall->setEnemmyToFollow(closestEnemy);
 		}
 
 	}
-
 }
 
 void UBallFollowComponent::closestEnemyUpdate()

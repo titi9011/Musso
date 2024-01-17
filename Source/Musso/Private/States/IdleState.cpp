@@ -12,13 +12,14 @@ IdleState::~IdleState()
 
 }
 
-
-void IdleState::idle()
+void IdleState::enter()
 {
-    UE_LOG(LogTemp, Display, TEXT("Idle State activated"));
-
     this->MainCharacter->CharacterStruct.state = states::idle;
+}
 
+
+void IdleState::update()
+{
 
     if (this->MainCharacter->CharacterStruct.bIsMoving)
     {
@@ -31,17 +32,8 @@ void IdleState::idle()
     }
 }
 
-void IdleState::walking()
-{
-}
-
-
-void IdleState::dead()
-{
-}
-
-
-void IdleState::menu()
+void IdleState::exit()
 {
 
 }
+

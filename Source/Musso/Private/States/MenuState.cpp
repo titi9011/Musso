@@ -14,23 +14,19 @@ MenuState::~MenuState()
 {
 }
 
-void MenuState::idle()
+void MenuState::enter()
 {
-}
-
-void MenuState::walking()
-{
-}
-
-
-void MenuState::dead()
-{
-}
-
-void MenuState::menu()
-{
-    UE_LOG(LogTemp, Display, TEXT("menu State"));
-    
     this->MainCharacter->CharacterStruct.state = states::menu;
+}
+
+
+void MenuState::update()
+{
+
+}
+
+
+void MenuState::exit()
+{
 
 }

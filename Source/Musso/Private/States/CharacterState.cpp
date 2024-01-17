@@ -1,8 +1,6 @@
-
 #include "States\CharacterState.h"
 
 
-// Sets default values
 UCharacterState::UCharacterState()
 {
 }

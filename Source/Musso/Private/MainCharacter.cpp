@@ -34,7 +34,6 @@ AMainCharacter::~AMainCharacter()
 // Called when the game starts or when spawned
 void AMainCharacter::BeginPlay()
 {
-	// Call the base class  
 	Super::BeginPlay();
 
 	//Add Input Mapping Context
@@ -52,17 +51,15 @@ void AMainCharacter::BeginPlay()
 	lastPosition = GetActorLocation();
 }
 
-// Called every frame
 void AMainCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	collectCoins();
 	updateBIsMoving();
-	runStates();
+	MainCharacterState->update();
 
 }
 
-// Called to bind functionality to input
 void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent);
@@ -98,23 +95,20 @@ void AMainCharacter::MoveAndRotation(const FInputActionValue& Value)
 
 void AMainCharacter::setMainCharacterState(UCharacterState *_MainCharacterState)
 {
+	this->MainCharacterState->exit();
+
 	if (this->MainCharacterState != nullptr)
 	{
 		delete this->MainCharacterState;
 	}
+
 	this->MainCharacterState = _MainCharacterState;
 	this->MainCharacterState->setCharacter(this);
+
+	this->MainCharacterState->enter();
 }
 
 
-void AMainCharacter::runStates()
-{
-	MainCharacterState->idle();
-	MainCharacterState->walking();
-	MainCharacterState->dead();
-	MainCharacterState->menu();
-
-}
 
 void AMainCharacter::GetDamage()
 {
@@ -143,8 +137,6 @@ void AMainCharacter::materialFlash()
 			MyMeshComponent->SetMaterial(0, flashMaterial);
 			
 			FTimerHandle MyTimerHandle;
-
-			// Start a timer
 			GetWorld()->GetTimerManager().SetTimer(MyTimerHandle, this, &AMainCharacter::materialBase, 0.1f, false);
 
 		}

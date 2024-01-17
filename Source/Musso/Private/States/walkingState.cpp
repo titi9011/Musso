@@ -14,16 +14,14 @@ WalkingState::~WalkingState()
 {
 }
 
-void WalkingState::idle()
+void WalkingState::enter()
 {
+    this->MainCharacter->CharacterStruct.state = states::walking;
 }
 
-void WalkingState::walking()
+
+void WalkingState::update()
 {
-    UE_LOG(LogTemp, Display, TEXT("Walking State activated"));
-
-    this->MainCharacter->CharacterStruct.state = states::walking;
-
 
     if (this->MainCharacter->CharacterStruct.bIsMoving == false)
     {
@@ -37,11 +35,7 @@ void WalkingState::walking()
 }
 
 
-void WalkingState::dead()
+void WalkingState::exit()
 {
-}
 
-
-void WalkingState::menu()
-{
 }

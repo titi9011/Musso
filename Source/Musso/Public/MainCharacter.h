@@ -57,8 +57,6 @@ public:
 
 	virtual void setMainCharacterState(UCharacterState *_MainCharacterState);
 
-	void runStates();
-
     UFUNCTION(BlueprintCallable)
     void GetDamage();
 

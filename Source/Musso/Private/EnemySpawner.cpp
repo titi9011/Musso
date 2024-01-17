@@ -95,21 +95,22 @@ void AEnemySpawner::restartSpawningBat(float occurence)
 void AEnemySpawner::startLevel1()
 {
 	startSpawningEnemy(3.f);
-	startSpawningGolem(5.f);
-	startSpawningBat(1.f);
+	
 	UE_LOG(LogTemp, Error, TEXT("Level 1"));
 }
 
 void AEnemySpawner::startLevel2()
 {
-	restartSpawningEnemy(6.f);
-	startSpawningGolem(10.f);
+	restartSpawningEnemy(3.f);
+	startSpawningGolem(6.f);
 }
 
 void AEnemySpawner::startLevel3()
 {
-	restartSpawningEnemy(7.f);
-	restartSpawningEnemy(5.f);
+
+	restartSpawningEnemy(3.f);
+	startSpawningGolem(6.f);
+	restartSpawningBat(3.f);
 }
  
 

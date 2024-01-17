@@ -14,8 +14,8 @@ public:
 	IdleState();
 	virtual ~IdleState();
 
-	void idle() override;
-	void walking() override;
-	void dead() override;
-	void menu() override;
+	void enter() override;
+	void update() override;
+	void exit() override;
+
 };
